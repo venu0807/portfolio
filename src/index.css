@@ -1,0 +1,89 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "DM Sans", system-ui, sans-serif;
+  --font-display: "Space Grotesk", system-ui, sans-serif;
+  
+  --color-background: hsl(var(--background));
+  --color-foreground: hsl(var(--foreground));
+  --color-muted: hsl(var(--muted));
+  --color-muted-foreground: hsl(var(--muted-foreground));
+  
+  --color-primary: hsl(var(--primary));
+  --color-primary-foreground: hsl(var(--primary-foreground));
+  --color-accent: hsl(var(--accent));
+  
+  --color-border: hsl(var(--border));
+  --color-card: hsl(var(--card));
+  --color-card-foreground: hsl(var(--card-foreground));
+}
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 0 0% 7%;
+    --muted: 0 0% 98%;
+    --muted-foreground: 0 0% 40%;
+    --primary: 271 76% 53%; /* purple */
+    --primary-foreground: 0 0% 100%;
+    --accent: 217 91% 60%; /* blue */
+    --border: 0 0% 92%;
+    --card: 0 0% 100%;
+    --card-foreground: 0 0% 7%;
+  }
+
+  .dark {
+    --background: 0 0% 5%;
+    --foreground: 0 0% 95%;
+    --muted: 0 0% 10%;
+    --muted-foreground: 0 0% 65%;
+    --primary: 271 76% 65%;
+    --primary-foreground: 0 0% 100%;
+    --accent: 217 91% 65%;
+    --border: 0 0% 15%;
+    --card: 0 0% 7%;
+    --card-foreground: 0 0% 95%;
+  }
+}
+
+@layer base {
+  * {
+    border-color: hsl(var(--border));
+  }
+  body {
+    background-color: hsl(var(--background));
+    color: hsl(var(--foreground));
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    min-height: 100vh;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-display);
+  }
+}
+
+/* Custom utilities */
+@layer utilities {
+  .section-label {
+    @apply text-[10px] font-mono tracking-[0.2em] uppercase text-muted-foreground flex items-center gap-2;
+  }
+  
+  .section-label::before {
+    content: "";
+    @apply block w-1 h-3 bg-primary rounded-sm;
+  }
+  
+  .boxy-btn {
+    @apply px-4 py-2 text-xs font-mono border border-border flex items-center gap-2 transition-colors;
+  }
+  
+  .boxy-btn-primary {
+    @apply bg-foreground text-background border-foreground hover:bg-foreground/90;
+  }
+  
+  .boxy-btn-outline {
+    @apply bg-background text-foreground hover:bg-muted;
+  }
+}
