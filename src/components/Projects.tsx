@@ -10,7 +10,7 @@ export function Projects() {
       statusColor: "bg-primary/10 text-primary",
       description: "Engineered a robust web scraping and automation tool to streamline job applications. Developed custom scripts to parse job boards, auto-fill forms, and track application statuses efficiently.",
       architecture: <><strong className="text-foreground">Automation Pipeline</strong> + Automated scraping and application workflows.</>,
-      stack: ["Python", "Selenium", "Open Claw", "Automation"]
+      stack: ["Python", "Selenium", "Open Claw", "Automation","Ollama"]
     },
     {
       name: "Automation QA Developer",
