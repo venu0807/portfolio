@@ -1,7 +1,8 @@
-import { motion } from 'framer-motion';
 import { ExternalLink } from 'lucide-react';
+import { useInView } from '../hooks/useInView';
 
 export function Certifications() {
+  const { ref, inView } = useInView();
   const certifications = [
     {
       title: "Full Stack Java Developer Program",
@@ -21,12 +22,7 @@ export function Certifications() {
 
   return (
     <section id="certifications" className="pt-8">
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true, margin: "-100px" }}
-        transition={{ duration: 0.5 }}
-      >
+      <div ref={ref} className={`fade-in ${inView ? 'in-view' : ''}`}>
         <div className="section-label mb-8">[ CERTIFICATION_LOG ]</div>
 
         <div className="space-y-6">
@@ -34,11 +30,11 @@ export function Certifications() {
             <div key={i} className="bg-card border border-border p-8 hover:shadow-sm transition-shadow">
               <div className="flex flex-col md:flex-row md:items-baseline justify-between gap-2 mb-4">
                 <div>
-                  <a href={cert.link || "#"} target="_blank" rel="noreferrer" className="group inline-flex items-center gap-2 hover:text-[#06b6d4] transition-colors">
-                    <h3 className="text-xl font-bold text-foreground group-hover:text-[#06b6d4] transition-colors">{cert.title}</h3>
-                    <ExternalLink size={16} className="text-muted-foreground group-hover:text-[#06b6d4] transition-colors" />
+                  <a href={cert.link || "#"} target="_blank" rel="noreferrer" className="group inline-flex items-center gap-2 hover:text-cyan-500 transition-colors">
+                    <h3 className="text-xl font-bold text-foreground group-hover:text-cyan-500 transition-colors">{cert.title}</h3>
+                    <ExternalLink size={16} className="text-muted-foreground group-hover:text-cyan-500 transition-colors" />
                   </a>
-                  <div className="text-sm font-semibold text-[#06b6d4] mt-1">{cert.issuer}</div>
+                  <div className="text-sm font-semibold text-cyan-500 mt-1">{cert.issuer}</div>
                 </div>
                 <div className="text-xs font-mono text-muted-foreground uppercase tracking-widest shrink-0">
                   {cert.date}
@@ -51,7 +47,7 @@ export function Certifications() {
             </div>
           ))}
         </div>
-      </motion.div>
+      </div>
     </section>
   );
 }

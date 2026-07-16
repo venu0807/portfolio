@@ -1,6 +1,7 @@
-import { motion } from 'framer-motion';
+import { useInView } from '../hooks/useInView';
 
 export function Education() {
+  const { ref, inView } = useInView();
   const education = [
     {
       degree: "Master of Computer Applications (AI & ML)",
@@ -20,12 +21,7 @@ export function Education() {
 
   return (
     <section id="education" className="pt-8">
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true, margin: "-100px" }}
-        transition={{ duration: 0.5 }}
-      >
+      <div ref={ref} className={`fade-in ${inView ? 'in-view' : ''}`}>
         <div className="section-label mb-8">[ ACADEMIC_RECORD ]</div>
 
         <div className="space-y-6">
@@ -34,7 +30,7 @@ export function Education() {
               <div className="flex flex-col md:flex-row md:items-baseline justify-between gap-2 mb-4">
                 <div>
                   <h3 className="text-xl font-bold text-foreground">{edu.degree}</h3>
-                  <div className="text-sm font-semibold text-[#06b6d4] mt-1">{edu.institution}</div>
+                  <div className="text-sm font-semibold text-cyan-500 mt-1">{edu.institution}</div>
                 </div>
                 <div className="text-xs font-mono text-muted-foreground uppercase tracking-widest shrink-0 text-right">
                   {edu.date}
@@ -47,7 +43,7 @@ export function Education() {
             </div>
           ))}
         </div>
-      </motion.div>
+      </div>
     </section>
   );
 }

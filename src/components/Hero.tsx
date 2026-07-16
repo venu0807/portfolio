@@ -1,13 +1,8 @@
-import { motion } from 'framer-motion';
 
 export function Hero() {
   return (
     <section id="metrics" className="pt-8">
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.5 }}
-      >
+      <div className="fade-in in-view">
         <div className="text-[10px] font-mono tracking-widest text-muted-foreground uppercase mb-6">
           Initialization Sequence Complete
         </div>
@@ -20,8 +15,9 @@ export function Hero() {
             <div className="absolute -inset-1 bg-gradient-to-tr from-accent to-primary rounded-full opacity-60"></div>
             <div className="relative w-56 h-56 md:w-64 md:h-64 rounded-full p-1.5 bg-background shadow-xl">
               <img
-                src="/profile.png"
+                src="/profile.webp"
                 alt="Venu Gopal Reddy Palugulla"
+                loading="lazy"
                 className="w-full h-full rounded-full object-cover"
               />
               {/* Verified badge */}
@@ -37,15 +33,15 @@ export function Hero() {
             </div>
 
             <h1 className="text-5xl md:text-7xl font-bold tracking-tight mb-2">
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#06b6d4] to-primary">Full Stack AI Engineer</span>
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-500 to-primary">Full Stack AI Engineer</span>
             </h1>
             <h2 className="text-3xl md:text-5xl font-bold tracking-tight text-foreground leading-tight">
               AI Engineer that brings models to production <br className="hidden md:block" />
-              with <span className="border-b-2 border-primary border-dotted pb-1">Deep Learning</span> + <span className="border-b-2 border-[#06b6d4] border-dotted pb-1">On-Device AI</span>
+              with <span className="border-b-2 border-primary border-dotted pb-1">Deep Learning</span> + <span className="border-b-2 border-cyan-500 border-dotted pb-1">On-Device AI</span>
             </h2>
 
             <div className="flex flex-wrap justify-center md:justify-start gap-3 mt-8">
-              <span className="px-4 py-1.5 rounded-full border border-[#06b6d4]/30 bg-[#06b6d4]/5 text-sm font-medium text-foreground">
+              <span className="px-4 py-1.5 rounded-full border border-cyan-500/30 bg-cyan-500/5 text-sm font-medium text-foreground">
                 Backend Developer
               </span>
               <span className="px-4 py-1.5 rounded-full border border-border bg-muted/50 text-sm font-medium text-foreground">
@@ -65,7 +61,7 @@ export function Hero() {
             GitHub
           </a>
           <a href="https://www.linkedin.com/in/venu-gopal-reddy-palugulla-4948b8258" target="_blank" rel="noreferrer" className="boxy-btn boxy-btn-outline">
-            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" /><rect x="2" y="9" width="4" height="12" /><circle cx="4" cy="4" r="2" /></svg>
+            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/></svg>
             LinkedIn
           </a>
           <a href="https://leetcode.com/u/venu08/" target="_blank" rel="noreferrer" className="boxy-btn boxy-btn-outline">
@@ -85,7 +81,7 @@ export function Hero() {
             <MetricCard value="400+" label="Hours Full-Stack Training" />
           </div>
         </div>
-      </motion.div>
+      </div>
     </section>
   );
 }

@@ -1,28 +1,28 @@
 import { useEffect, useState } from 'react';
 
+const NAV_ITEMS = [
+  { id: 'experience', label: 'Experience' },
+  { id: 'systems', label: 'Projects' },
+  { id: 'stack', label: 'Skills & Stack' },
+  { id: 'certifications', label: 'Certifications' },
+  { id: 'education', label: 'Education' },
+  { id: 'contact', label: 'Contact' },
+] as const;
+
 export function SidebarNav() {
   const [activeSection, setActiveSection] = useState('experience');
   const [isVisible, setIsVisible] = useState(false);
-
-  const navItems = [
-    { id: 'experience', label: 'Experience' },
-    { id: 'systems', label: 'Projects' },
-    { id: 'stack', label: 'Skills & Stack' },
-    { id: 'certifications', label: 'Certifications' },
-    { id: 'education', label: 'Education' },
-    { id: 'contact', label: 'Contact' },
-  ];
 
   useEffect(() => {
     const handleScroll = () => {
       // Hide the sidebar when at the top "Overview" / Hero section
       setIsVisible(window.scrollY > 400);
 
-      const sections = navItems.map(item => document.getElementById(item.id));
+      const sections = NAV_ITEMS.map(item => document.getElementById(item.id));
 
       // Check if scrolled to bottom
       if (window.innerHeight + Math.round(window.scrollY) >= document.documentElement.scrollHeight - 200) {
-        setActiveSection(navItems[navItems.length - 1].id);
+        setActiveSection(NAV_ITEMS[NAV_ITEMS.length - 1].id);
         return;
       }
 
@@ -32,7 +32,7 @@ export function SidebarNav() {
           const rect = section.getBoundingClientRect();
           // Trigger when the top of the section enters the viewport (with a 100px buffer)
           if (rect.top <= window.innerHeight - 100) {
-            setActiveSection(navItems[i].id);
+            setActiveSection(NAV_ITEMS[i].id);
             break;
           }
         }
@@ -52,20 +52,20 @@ export function SidebarNav() {
         isVisible ? 'opacity-100' : 'opacity-0 pointer-events-none'
       }`}
     >
-      {navItems.map((item) => {
+      {NAV_ITEMS.map((item) => {
         const isActive = activeSection === item.id;
         return (
           <a
             key={item.id}
             href={`#${item.id}`}
             className={`flex items-center gap-4 text-xs font-mono group transition-colors ${
-              isActive ? 'text-[#06b6d4] font-bold' : 'text-muted-foreground hover:text-foreground'
+              isActive ? 'text-cyan-500 font-bold' : 'text-muted-foreground hover:text-foreground'
             }`}
           >
             {/* The dot */}
             <div
               className={`w-3 h-3 rounded-full border-2 transition-colors z-10 ${
-                isActive ? 'bg-[#06b6d4] border-[#06b6d4]' : 'bg-background border-border group-hover:border-[#06b6d4]'
+                isActive ? 'bg-cyan-500 border-cyan-500' : 'bg-background border-border group-hover:border-cyan-500'
               }`}
             />
             {/* The label */}

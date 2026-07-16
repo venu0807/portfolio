@@ -1,63 +1,95 @@
-import { motion } from 'framer-motion';
 import { ExternalLink } from 'lucide-react';
+import { useInView } from '../hooks/useInView';
 
 export function Projects() {
+  const { ref, inView } = useInView();
   const systems = [
     {
-      name: "Job Automation",
-      link: "https://github.com/venu0807/job-automation",
-      status: "In Production",
+      name: "PicScore — AI Face Rating",
+      link: "https://github.com/venu0807/picscore",
+      status: "Live",
       statusColor: "bg-primary/10 text-primary",
-      description: "Engineered a robust web scraping and automation tool to streamline job applications. Developed custom scripts to parse job boards, auto-fill forms, and track application statuses efficiently.",
-      architecture: <><strong className="text-foreground">Automation Pipeline</strong> + Automated scraping and application workflows.</>,
-      stack: ["Python", "Selenium", "Open Claw", "Automation","Ollama"]
+      description: "Geometric facial analysis SaaS. MediaPipe face mesh + pure TS scoring (symmetry, golden-ratio harmony, jawline, cheekbones, eyes, skin quality). Zero ML bias, client-side privacy, Stripe monetization.",
+      architecture: <><strong className="text-foreground">Next.js + Supabase</strong> + MediaPipe browser CV + geometric scoring engine.</>,
+      stack: ["Next.js", "TypeScript", "MediaPipe", "Supabase", "Tailwind"]
     },
     {
-      name: "Automation QA Developer",
+      name: "RoastMyCV — AI Resume Reviewer",
+      link: "https://github.com/venu0807/roastmycv",
+      status: "Live",
+      statusColor: "bg-primary/10 text-primary",
+      description: "Brutal resume roasting by Llama-3.1-70B via Groq. Parse PDF/DOCX → extract sections → AI generates structured roast + action plan. 1 free/day, Pro unlimited.",
+      architecture: <><strong className="text-foreground">Next.js + Groq LLM</strong> + pdf-parse + mammoth + Supabase auth.</>,
+      stack: ["Next.js", "Groq", "Llama-3.1", "pdf-parse", "Supabase"]
+    },
+    {
+      name: "Jarvis — Job Automation Pipeline",
+      link: "https://github.com/venu0807/jarvis",
+      status: "In Production",
+      statusColor: "bg-green-500/10 text-green-600",
+      description: "AI-powered automation suite applying to 8 Indian job portals simultaneously. Naukri, Internshala, Indeed, Foundit, Cutshort, Freshersworld, Wellfound. Auto-resume tailoring via local Ollama. Daily email reports.",
+      architecture: <><strong className="text-foreground">Playwright Automation</strong> + Ollama AI + LaTeX resume compilation.</>,
+      stack: ["Python", "Playwright", "Ollama", "LaTeX", "SMTP"]
+    },
+    {
+      name: "Movie Recommender System",
+      link: "https://github.com/venu0807/Recommendation_System",
+      status: "334 Tests",
+      statusColor: "bg-cyan-500/10 text-cyan-500",
+      description: "Hybrid movie recommendation engine with collaborative filtering + content-based filtering. Django backend, TMDB integration, 334 passing unit tests. Precision@10 optimized.",
+      architecture: <><strong className="text-foreground">Django + REST API</strong> + collaborative + content-based filtering.</>,
+      stack: ["Python", "Django", "scikit-learn", "Pandas", "PostgreSQL"]
+    },
+    {
+      name: "SafeguardAI — On-Device Safety",
+      link: "https://github.com/venu0807/SafeguardAI",
+      status: "89% Accuracy",
+      statusColor: "bg-yellow-500/10 text-yellow-600",
+      description: "Mobile-first violent content detection CNN. TensorFlow Lite on Android with MediaPipe face preprocessing. 89% accuracy benchmark. Privacy-preserving — all inference on-device.",
+      architecture: <><strong className="text-foreground">CNN + TensorFlow Lite</strong> + Android + MediaPipe preprocessing.</>,
+      stack: ["Python", "TensorFlow", "Android", "MediaPipe", "Keras"]
+    },
+    {
+      name: "Job Automation Pipeline",
+      link: "https://github.com/venu0807/job-automation",
+      status: "Automation",
+      statusColor: "bg-[#3b82f6]/10 text-[#3b82f6]",
+      description: "Web scraping and automation tool for job applications. Custom scripts to parse job boards, auto-fill forms, and track application statuses across multiple platforms.",
+      architecture: <><strong className="text-foreground">Automation Pipeline</strong> + scraping + form-fill workflows.</>,
+      stack: ["Python", "Selenium", "Automation", "Ollama"]
+    },
+    {
+      name: "Automation QA Framework",
       link: "https://github.com/venu0807/Automation---QA-Developer",
       status: "Open Source",
-      statusColor: "bg-[#06b6d4]/10 text-[#06b6d4]",
-      description: "Established comprehensive end-to-end testing pipelines to ensure high software quality. Created scalable test suites that validate complex UI interactions and prevent regression bugs in production.",
-      architecture: <><strong className="text-foreground">Testing Framework</strong> + Automated end-to-end testing systems.</>,
+      statusColor: "bg-cyan-500/10 text-cyan-500",
+      description: "End-to-end testing pipelines ensuring high software quality. Scalable test suites validating complex UI interactions and preventing regression bugs in production.",
+      architecture: <><strong className="text-foreground">Testing Framework</strong> + E2E automated testing.</>,
       stack: ["JavaScript", "Cypress", "QA", "n8n"]
-    },
-    {
-      name: "Booking System",
-      link: "https://github.com/venu0807/booking",
-      status: "Production",
-      statusColor: "bg-green-500/10 text-green-600",
-      description: "Built a full-stack reservation platform managing real-time availability and user bookings. Implemented secure user authentication and scalable database schemas to handle concurrent reservation requests.",
-      architecture: <><strong className="text-foreground">Full Stack App</strong> + Booking and reservation management.</>,
-      stack: ["Python", "Django", "JavaScript", "React", "Node.js"]
     },
     {
       name: "LeetCode Solutions",
       link: "https://github.com/venu0807/Leetcode_Solutions",
       status: "Algorithms",
       statusColor: "bg-[#3b82f6]/10 text-[#3b82f6]",
-      description: "Maintained a highly organized repository of optimal algorithmic solutions. Demonstrated mastery of advanced data structures and algorithm design principles with a focus on optimal time and space complexities.",
-      architecture: <><strong className="text-foreground">Data Structures</strong> + Optimal algorithms for technical interviews.</>,
+      description: "Organized repository of algorithmic solutions demonstrating mastery of data structures and algorithm design with optimal time and space complexities.",
+      architecture: <><strong className="text-foreground">Data Structures</strong> + optimal algorithms.</>,
       stack: ["Java", "Algorithms", "Problem Solving"]
     }
   ];
 
   return (
     <section id="systems" className="pt-8">
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true, margin: "-100px" }}
-        transition={{ duration: 0.5 }}
-      >
+      <div ref={ref} className={`fade-in ${inView ? 'in-view' : ''}`}>
         <div className="section-label mb-8">[ INFRASTRUCTURE_SYSTEMS ]</div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {systems.map((sys, i) => (
             <div key={i} className="bg-card border border-border p-8 flex flex-col hover:shadow-sm transition-shadow">
               <div className="flex justify-between items-start mb-6">
-                <a href={sys.link || "#"} target="_blank" rel="noreferrer" className="group inline-flex items-center gap-2 hover:text-[#06b6d4] transition-colors">
-                  <h3 className="text-xl font-bold text-foreground group-hover:text-[#06b6d4] transition-colors">{sys.name}</h3>
-                  <ExternalLink size={16} className="text-muted-foreground group-hover:text-[#06b6d4] transition-colors" />
+                <a href={sys.link || "#"} target="_blank" rel="noreferrer" className="group inline-flex items-center gap-2 hover:text-cyan-500 transition-colors">
+                  <h3 className="text-xl font-bold text-foreground group-hover:text-cyan-500 transition-colors">{sys.name}</h3>
+                  <ExternalLink size={16} className="text-muted-foreground group-hover:text-cyan-500 transition-colors" />
                 </a>
                 <span className={`text-[10px] font-bold uppercase tracking-wider px-2 py-1 rounded-full ${sys.statusColor}`}>
                   {sys.status}
@@ -87,7 +119,7 @@ export function Projects() {
             </div>
           ))}
         </div>
-      </motion.div>
+      </div>
     </section>
   );
 }
