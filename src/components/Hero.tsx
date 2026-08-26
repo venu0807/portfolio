@@ -1,7 +1,8 @@
-import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect, useRef, lazy, Suspense } from 'react';
 import { ParticlesField } from './ParticlesField';
-import { HeroScene3D } from './HeroScene3D';
 import { useInView } from '../hooks/useInView';
+
+const HeroScene3D = lazy(() => import('./HeroScene3D').then(m => ({ default: m.HeroScene3D })));
 
 const TAGLINES = [
   'Full Stack AI Engineer',
@@ -138,7 +139,9 @@ export function Hero() {
   return (
     <section id="hero" className="relative min-h-screen flex flex-col overflow-hidden">
       {/* Particle field background */}
-      <HeroScene3D />
+      <Suspense fallback={null}>
+        <HeroScene3D />
+      </Suspense>
       <ParticlesField />
 
       <div className="relative z-10 flex-1 flex flex-col justify-center px-6 md:px-12 pt-24 pb-16">
