@@ -196,7 +196,7 @@ export function Hero() {
                   <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.24c3-.34 6-1.53 6-6.76a5.5 5.5 0 0 0-1.5-3.8 5.5 5.5 0 0 0-.15-3.8s-1.13-.36-3.7 1.36a13.3 13.3 0 0 0-7 0C6.13 2 5 2.36 5 2.36a5.5 5.5 0 0 0-.15 3.8A5.5 5.5 0 0 0 3 10.04c0 5.22 3 6.42 6 6.76a4.8 4.8 0 0 0-1 3.24v4" /></svg>
                   GitHub
                 </MagneticButton>
-                <MagneticButton href="https://www.linkedin.com/in/venu-gopal-reddy-palugulla-4948b8258">
+                <MagneticButton href="https://www.linkedin.com/in/venu0807/">
                   <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/></svg>
                   LinkedIn
                 </MagneticButton>

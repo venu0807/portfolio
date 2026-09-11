@@ -70,7 +70,7 @@ export function Footer() {
             <span className="group-hover:translate-x-0.5 transition-transform" aria-hidden="true">→</span>
           </a>
           <a
-            href="https://www.linkedin.com/in/venu-gopal-reddy-palugulla-4948b8258"
+            href="https://www.linkedin.com/in/venu0807/"
             target="_blank"
             rel="noreferrer"
             className="premium-btn-outline"
@@ -83,7 +83,7 @@ export function Footer() {
         {/* Social links row */}
         <div className="flex items-center gap-8 mb-8">
           <FooterLink href="https://github.com/venu0807" icon={<GitHubIcon size={18} />} label="GitHub" />
-          <FooterLink href="https://www.linkedin.com/in/venu-gopal-reddy-palugulla-4948b8258" icon={<LinkedInIcon size={18} />} label="LinkedIn" />
+          <FooterLink href="https://www.linkedin.com/in/venu0807/" icon={<LinkedInIcon size={18} />} label="LinkedIn" />
           <FooterLink href="mailto:pvgreddy3@gmail.com" icon={<Mail size={18} />} label="Email" />
         </div>
 
