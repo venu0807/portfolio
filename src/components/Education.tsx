@@ -8,7 +8,7 @@ export function Education() {
       // link: "",
       institution: "Galgotias University",
       date: "2024 – 2026 (Expected)",
-      score: "CGPA: 8.35 / 10"
+      score: "CGPA: 7.45 / 10"
     },
     {
       degree: "Bachelor of Computer Science",
